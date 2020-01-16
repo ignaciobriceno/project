@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payed: false
+  user: one
+  photographer: one
+
+two:
+  payed: false
+  user: two
+  photographer: two
