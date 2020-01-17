@@ -2,10 +2,8 @@
 
 one:
   type: 
-  user: one
-  photographer: one
+  date: 2020-01-16 21:12:04
 
 two:
   type: 
-  user: two
-  photographer: two
+  date: 2020-01-16 21:12:04
