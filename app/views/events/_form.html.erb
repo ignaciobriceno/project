@@ -21,7 +21,27 @@
     <%= form.datetime_select :date %>
   </div>
 
+  <%= form.fields_for :reservation do |f| %>
+  
+  <div class="field">
+    <%= f.label :payed %>
+    <%= f.boolean :payed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :payed %>
+    <%= f.boolean :payed %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :payed %>
+    <%= f.boolean :payed %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+
+
+
 <% end %>

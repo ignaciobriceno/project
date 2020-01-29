@@ -5,7 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reservations
-  has_many :events
   has_many :photographers, through: :reservations
-  has_many :photographers, through: :events
 end
