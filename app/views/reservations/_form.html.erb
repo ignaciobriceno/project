@@ -1,0 +1,31 @@
+<%= form_with(model: reservation, local: true) do |form| %>
+<% if reservation.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+  <ul>
+    <% reservation.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+    <%= form.label :photographer_id %>
+    <%= form.text_field :photographer_id %>
+</div>
+
+<%= fields_for :event do |ef| %>
+<div class="field">
+  <%= ef.label :category %>
+  <%= ef.text_field :category %>
+</div>
+
+<div class="field">
+  <%= ef.label :date %>
+  <%= ef.datetime_select :date %>
+</div>
+
+<% end %>
+<% end %>

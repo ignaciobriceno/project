@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'reservations/create'
-  get 'reservations/index'
+  resources :reservations
   resources :events
   root 'pages#index'
   devise_for :photographers

@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_29_003130) do
+ActiveRecord::Schema.define(version: 2020_01_30_225326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_photographers", force: :cascade do |t|
+    t.bigint "photographer_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_photographers_on_category_id"
+    t.index ["photographer_id"], name: "index_category_photographers_on_photographer_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "category"
@@ -60,6 +75,8 @@ ActiveRecord::Schema.define(version: 2020_01_29_003130) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "category_photographers", "categories"
+  add_foreign_key "category_photographers", "photographers"
   add_foreign_key "events", "reservations"
   add_foreign_key "reservations", "photographers"
   add_foreign_key "reservations", "users"

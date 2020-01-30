@@ -6,4 +6,7 @@ class Photographer < ApplicationRecord
 
   has_many :reservations
   has_many :users, through: :reservations
+
+  has_many :category_photographers
+  has_many :categories, through: :category_photographers
 end
