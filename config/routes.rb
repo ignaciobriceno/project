@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'photographers/show'
+  get 'photographers/edit'
+  patch 'photographers/update'
+  delete 'remove_categoryphotographers/categoryphotographer_id', to: 'category_photographers#destroy'
   resources :reservations
   resources :events
   root 'pages#index'

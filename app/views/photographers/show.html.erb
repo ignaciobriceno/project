@@ -1,0 +1,19 @@
+<h1>Photographers#show</h1>
+<p>Find me in app/views/photographers/show.html.erb</p>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @photographer.name %>
+</p>
+
+<p>
+  <strong>Mail:</strong>
+  <%= @photographer.email %>
+</p>
+
+<p>
+  <strong>Categories:</strong>
+  <%= @photographer.categories.pluck(:name).join(", ") %>
+</p>
