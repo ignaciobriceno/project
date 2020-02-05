@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
-  	@reservation = Reservation.new(params[:reservation])
+  	@reservation = Reservation.new(reservation_params)
   	@reservation.user_id = current_user.id if current_user
 
   	if @reservation.save

@@ -10,7 +10,10 @@
         <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to  "Salir", destroy_user_session_path, method: :delete, class: "nav-link fixed-right" %>
-        </li>  
+        </li>
+        <li class="nav-item">
+       <span class="nav-link"> <%= current_user.email if user_signed_in? %> </span>
+      </li>  
         <% else %>
         <li class="nav-item">
           <%= link_to  "Inicia sesión", new_user_session_path, class: "nav-link" %>
@@ -19,9 +22,7 @@
           <%= link_to  "Regístrate", new_user_registration_path, class: "nav-link" %>
         </li>
         <% end %>
-      <li class="nav-item">
-       <span class="nav-link"> <%= current_user.email if user_signed_in? %> </span>
-      </li>
+      
     </ul>
     <ul class="navbar-nav ml-auto">
         <% if photographer_signed_in? %>
@@ -37,7 +38,7 @@
         </li>
         <% end %>
       <li class="nav-item">
-       <span class="nav-link"> <%= current_photographer.email if user_signed_in? %> </span>
+       <span class="nav-link"> <%= current_photographer.email if photographer_signed_in? %> </span>
       </li>
     </ul>
   

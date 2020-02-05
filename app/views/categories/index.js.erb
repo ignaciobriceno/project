@@ -1,0 +1,5 @@
+$("#reservation_photographer_id").html('');
+
+<% @photographers.each do |i| %>
+$("#reservation_photographer_id").append('<option value="'+ <%= i.id %> +'">'+ "<%= i.email %>" +'</option>')
+<% end %> 

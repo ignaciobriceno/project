@@ -11,15 +11,12 @@
 </div>
 <% end %>
 
-<div class="field">
-    <%= form.label :photographer_id %>
-    <%= form.text_field :photographer_id %>
-</div>
+
 
 <%= fields_for :event do |ef| %>
 <div class="field">
   <%= ef.label :category %>
-  <%= ef.text_field :category %>
+  <%= ef.select :category, Category.pluck(:name, :id), prompt:"Selecciona categoría" %>
 </div>
 
 <div class="field">
@@ -28,4 +25,27 @@
 </div>
 
 <% end %>
+
+<div class="field">
+    <%= form.label :photographer_id %>
+    <%= form.select :photographer_id, {} %>
+</div>
+
+<div class="field">
+  <%= form.submit %>  
+</div>
+
 <% end %>
+
+
+
+<script>
+  $("#event_category").change(function(){
+    $.ajax({
+      url: "<%= categories_index_path %>", 
+      data: {id: this.value},
+      dataType: 'script'
+      })
+
+  });
+</script>
