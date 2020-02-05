@@ -14,5 +14,8 @@
 <% @photographer.categories.each do |category| %>
 <%= category.name %><a href="<%= remove_categoryphotographers_categoryphotographer_id_path(category) %>" data-method="delete"><span class="badge">x</span></a>
 <% end %>
+<div>
+	<%= link_to "Volver", photographers_show_path %>
+</div>
 
 

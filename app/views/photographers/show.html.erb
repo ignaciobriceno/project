@@ -1,13 +1,4 @@
-<h1>Photographers#show</h1>
-<p>Find me in app/views/photographers/show.html.erb</p>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @photographer.name %>
-</p>
-
+<h1><%= @photographer.name %></h1>
 <p>
   <strong>Mail:</strong>
   <%= @photographer.email %>
@@ -17,3 +8,8 @@
   <strong>Categories:</strong>
   <%= @photographer.categories.pluck(:name).join(", ") %>
 </p>
+
+<%= link_to "Editar", photographers_edit_path , class: "btn btn-primary text-white" %>
+<%= link_to "Index", root_path , class: "btn btn-dark text-white" %>
+
+
