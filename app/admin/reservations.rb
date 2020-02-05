@@ -14,5 +14,14 @@ ActiveAdmin.register Reservation do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  permit_params :photographer_id, :user_id, :payed
+
+  index do
+   column :id
+   column :payed
+   column :user
+   column :photographer
+   actions
+ end
   
 end

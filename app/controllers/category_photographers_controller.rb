@@ -1,5 +1,5 @@
 class CategoryPhotographersController < ApplicationController
-	before_action :set_photographer,:set_relations, #:relation_params# :photographer_params
+	before_action :set_photographer,:set_relations
 
 	def destroy
 		relation = CategoryPhotographer.where(category_id: params[:format])
@@ -13,7 +13,5 @@ class CategoryPhotographersController < ApplicationController
     def set_relations
     	@relations = CategoryPhotographer.all
     end
-    def relation_params
-    	params.require(:categoryphotographer).permit(:categoryphotographer_id)
-	end
+  
 end
