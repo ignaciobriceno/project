@@ -2,9 +2,13 @@
   "name": "capt",
   "private": true,
   "dependencies": {
+    "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",
     "bootstrap4-datetimepicker": "^5.2.3",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.3"
   }
 }
