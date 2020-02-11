@@ -4,8 +4,9 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>ID Reserva</th>
       <th>Photographer</th>
+      <th>Date</th>
       <th>Payed</th>
       <th colspan="4"></th>
     </tr>
@@ -14,8 +15,9 @@
   <tbody>
     <% Reservation.all.each do |reservation| %>
       <tr>
-        <td><%= reservation.user_id %></td>
-        <td><%= reservation.photographer_id %></td>
+        <td><%= reservation.id %></td>
+        <td><%= reservation.photographer.name %></td>
+        <td><%= reservation.event.date %></td>
         <td><%= reservation.payed %></td>
         <td><%= link_to 'Show', reservation %></td>
 

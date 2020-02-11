@@ -12,8 +12,10 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery/dist/jquery
 //= require bootstrap/dist/js/bootstrap
+//= require moment/min/moment.min
+//= require moment-timezone/moment-timezone
+//= require bootstrap4-datetimepicker/src/js/bootstrap-datetimepicker
 //= require popper.js/dist/umd/popper
 //= require_tree .

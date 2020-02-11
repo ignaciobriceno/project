@@ -1,8 +1,14 @@
 class ReservationsController < ApplicationController
    before_action :authenticate_user!
    before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  
+  def index
+  
+  end
+  
   def new
   	@reservation = Reservation.new
+    @reservation.event = Event.new 
   end
 
   def edit
@@ -11,7 +17,6 @@ class ReservationsController < ApplicationController
   def create
   	@reservation = Reservation.new(reservation_params)
   	@reservation.user_id = current_user.id if current_user
-    @event = Event.new(reservation_params[:event_attributes])
 
   	if @reservation.save
   		redirect_to @reservation
@@ -33,9 +38,7 @@ class ReservationsController < ApplicationController
   	end
   end
 
-  def index
   
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

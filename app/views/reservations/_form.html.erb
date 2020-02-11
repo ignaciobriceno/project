@@ -13,7 +13,13 @@
 
 
 
-<%= fields_for :event do |ef| %>
+
+<div class="field">
+    <%= form.label :photographer_id %>
+    <%= form.select :photographer_id, {} %>
+</div>
+
+<%= form.fields_for :event do |ef| %>
 <div class="field">
   <%= ef.label :category %>
   <%= ef.select :category, Category.pluck(:name, :id), prompt:"Selecciona categoría" %>
@@ -21,15 +27,11 @@
 
 <div class="field">
   <%= ef.label :date %>
-  <%= ef.datetime_select :date %>
+  <%= ef.text_field :date %>
 </div>
-
+  
 <% end %>
 
-<div class="field">
-    <%= form.label :photographer_id %>
-    <%= form.select :photographer_id, {} %>
-</div>
 
 <div class="field">
   <%= form.submit %>  
@@ -40,7 +42,7 @@
 
 
 <script>
-  $("#event_category").change(function(){
+  $("#reservation_event_attributes_category").change(function(){
     $.ajax({
       url: "<%= categories_index_path %>", 
       data: {id: this.value},
