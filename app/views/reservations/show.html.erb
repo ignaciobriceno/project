@@ -1,4 +1,7 @@
-<%= @reservation.user_id%>
-<%= @reservation.photographer_id%>
+<div class="py-3 m-5 px-5">
+	<h3>Realizaste una reserva con <%= @reservation.photographer.name%>!</h3>
+	<h5>Pero para confirmarla necesitas realizar el pago clickeando sobre el siguiente botón:</h5>
+	<%= link_to 'Back', reservations_path, class: 'btn btn-primary float-right text-white' %>
+	<%= link_to 'Confirma tu reserva', pre_pay_billings_path, class: 'btn btn-success float-right text-white'%> 
+</div>
 
-<%= link_to 'Back', reservations_path %>

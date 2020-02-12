@@ -1,10 +1,10 @@
-<h1>Reservations#index</h1>
+<h1>Tus reservas</h1>
 <p>Find me in app/views/reservations/index.html.erb</p>
 
 <table>
   <thead>
     <tr>
-      <th>ID Reserva</th>
+      <th>ID</th>
       <th>Photographer</th>
       <th>Date</th>
       <th>Payed</th>
@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% Reservation.all.each do |reservation| %>
+    <% current_user.reservations.each do |reservation| %>
       <tr>
         <td><%= reservation.id %></td>
         <td><%= reservation.photographer.name %></td>

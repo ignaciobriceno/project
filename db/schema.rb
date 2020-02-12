@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_051554) do
+ActiveRecord::Schema.define(version: 2020_02_12_024148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 2020_02_05_051554) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "billings", force: :cascade do |t|
+    t.string "code"
+    t.string "payment_method"
+    t.decimal "amount", precision: 5, scale: 2
+    t.string "currency"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_billings_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -84,6 +95,8 @@ ActiveRecord::Schema.define(version: 2020_02_05_051554) do
     t.bigint "photographer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "billing_id"
+    t.index ["billing_id"], name: "index_reservations_on_billing_id"
     t.index ["photographer_id"], name: "index_reservations_on_photographer_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
@@ -101,9 +114,11 @@ ActiveRecord::Schema.define(version: 2020_02_05_051554) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "billings", "users"
   add_foreign_key "category_photographers", "categories"
   add_foreign_key "category_photographers", "photographers"
   add_foreign_key "events", "reservations"
+  add_foreign_key "reservations", "billings"
   add_foreign_key "reservations", "photographers"
   add_foreign_key "reservations", "users"
 end
