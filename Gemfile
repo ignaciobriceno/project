@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.3'
 gem 'webpacker'
 gem 'activeadmin'
 gem 'paypal-sdk-rest'
+gem 'omniauth-facebook'
 gem 'bullet', group: 'development'
 # Use postgresql as the database for Active Record
 gem 'erd'
