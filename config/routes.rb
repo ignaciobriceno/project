@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'users/index'
+  get 'users/show'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   resources :billings, only: [] do
     collection do
       get 'pre_pay'
+      get 'execute'
     end
   end
   

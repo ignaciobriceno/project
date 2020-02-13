@@ -1,15 +1,17 @@
-<h1><%= @photographer.name %></h1>
-<p>
-  <strong>Mail:</strong>
-  <%= @photographer.email %>
-</p>
+<div class="container-fluid text-center py-5">
 
-<p>
-  <strong>Categories:</strong>
-  <%= @photographer.categories.pluck(:name).join(", ") %>
-</p>
+	<h1>Hola <%= current_photographer.name %>!</h1>
 
-<%= link_to "Editar", photographers_edit_path , class: "btn btn-primary text-white" %>
-<%= link_to "Index", root_path , class: "btn btn-dark text-white" %>
+	<p>Trabajo en: <%= @photographer.categories.pluck(:name).join(", ") %></p>
+
+	<p>En esta página podrás editar tu perfil, añadiendo las categorías de los eventos que puedas trabajar, ver las reservas que te han agendado y tus eventos realizados.</p>
+
+	<p><%= link_to "Edita tu perfil", photographers_edit_path, class: "nav-link" %></p> 
+	<p><%= link_to "Mis reservas", reservations_path, class: "nav-link" %></p>
+	<p><%= link_to "Mis eventos", events_path, class: "nav-link" %></p> 
+	<p><%= link_to "Back", root_path, class: "nav-link" %></p> 
+
+</div>
+
 
 

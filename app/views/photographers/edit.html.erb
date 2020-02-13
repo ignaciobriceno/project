@@ -1,21 +1,19 @@
-<h1>Photographers#edit</h1>
-<p>Find me in app/views/photographers/edit.html.erb</p>
+<div class="container-fluid text-center py-4">
+	<h1>Edita tu perfil</h1>
+	<p class="py-1 m-3">Añade o elimina las categorías que puedes trabajar:</p>
 
-<%= form_with(model: @photographer, local: true, url:photographers_update_path) do |f| %>
-	<%= f.label :Categorías %>
-    <%= f.collection_select(:category_id, @categories, :id, :name) %>
+	<%= form_with(model: @photographer, local: true, url:photographers_update_path) do |f| %>
+	<%= f.collection_select(:category_id, @categories, :id, :name) %>
+	<%= f.submit '+'%>
 
-  <div class="actions">
-        <%= f.submit %>
-  </div>
+	<% end %>
 
-<% end %>
-
-<% @photographer.categories.each do |category| %>
-<%= category.name %><a href="<%= remove_categoryphotographers_categoryphotographer_id_path(category) %>" data-method="delete"><span class="badge">x</span></a>
-<% end %>
-<div>
-	<%= link_to "Volver", photographers_show_path %>
+	<% @photographer.categories.each do |category| %>
+	<p class="py-1 m-1"><%= category.name %><a href="<%= remove_categoryphotographers_categoryphotographer_id_path(category) %>" data-method="delete"><span class="badge">x</span></a></p>
+	<% end %>
+	
+	<p class="py-1 m-1"><%= link_to "Back", photographers_show_path %></p>
+	
 </div>
 
 

@@ -1,0 +1,14 @@
+<div class="container-fluid text-center py-5">
+
+	<h1>Hola <%= current_user.name %>!</h1>
+
+	<p>En esta página podrás editar tu perfil, ver tus reservas y tus eventos agendados.</p>
+
+	<p><%= link_to "Edita tu perfil", edit_user_registration_path, class: "nav-link" %></p> 
+	<p><%= link_to "Mis reservas", reservations_path, class: "nav-link" %></p>
+	<p><%= link_to "Mis eventos", events_path, class: "nav-link" %></p> 
+	<p><%= link_to "Back", root_path, class: "nav-link" %></p> 
+
+</div>
+
+

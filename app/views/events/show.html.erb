@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid text-center py-4">
+	<h4> Nombre del Evento</h4>
 
-<p>
-  <strong>Type:</strong>
-  <%= @event.type %>
-</p>
+	<p>Category: <%= @event.category %> </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+	<p>Date: <%= @event.date %> </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+	<h5>Acá estarían mis fotos... Si tuviera UNAS!!!</h5>
+
+	<%= link_to 'Back', events_path %>
+</div>
+

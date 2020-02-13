@@ -8,7 +8,7 @@ class BillingsController < ApplicationController
  				item[:sku] = reservation.id.to_s
  				item[:price] = 20.to_s
  				item[:currency] = 'USD'
- 				item[:quantity] = reservations.size
+ 				item[:quantity] = 1
  				item
  			end
 
@@ -35,5 +35,31 @@ class BillingsController < ApplicationController
  		else
  			render json: @payment.error
  		end
+
+ 	end
+
+ 	def execute
+ 		paypal_payment = PayPal::SDK::REST::Payment.find(params[:paymentId])
+
+ 		if paypal_payment.execute(payer_id: params[:PayerID])
+ 			
+ 			amount = paypal_payment.transactions.first.amount.total
+
+ 			billing = Billing.create(
+ 				user: current_user,
+ 				code: paypal_payment.id,
+ 				payment_method: 'paypal',
+ 				amount: amount,
+ 				currency: 'USD'
+ 				)
+
+ 			reservations = current_user.reservations.where(payed: nil)
+ 			reservations.update_all(payed: true, billing_id: billing.id)
+
+ 			redirect_to reservations_path, notice: "La compra se realizó con éxito!" 
+ 		else
+ 			render plain: "No se pudo generar el cobro en PayPal:("
+ 		end
+
  	end
 end
