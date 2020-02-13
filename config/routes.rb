@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   get 'users/index'
   get 'users/show'
+  get 'reservations/show_photographers'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 

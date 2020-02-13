@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
-   before_action :authenticate_user!
+   before_action :authenticate_user!, only: [:index, :show, :new, :edit]
+   before_action :authenticate_photographer!, only: [:show_photographers]
    before_action :set_reservation, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -26,6 +27,10 @@ class ReservationsController < ApplicationController
   end
  	
   def show
+  end
+
+
+  def show_photographers
   end
 
   def update

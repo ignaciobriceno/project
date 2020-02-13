@@ -1,53 +1,45 @@
-<%= form_with(model: reservation, local: true) do |form| %>
-<% if reservation.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+  <%= form_with(model: reservation, local: true) do |form| %>
+  <% if reservation.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
 
-  <ul>
-    <% reservation.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+    <ul>
+      <% reservation.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
-
-
-
-<div class="field">
+  <div class="field">
     <%= form.label :photographer_id %>
     <%= form.select :photographer_id, {} %>
-</div>
+  </div>
 
-<%= form.fields_for :event do |ef| %>
-<div class="field">
-  <%= ef.label :category %>
-  <%= ef.select :category, Category.pluck(:name, :id), prompt:"Selecciona categoría" %>
-</div>
+  <%= form.fields_for :event do |ef| %>
+  <div class="field">
+    <%= ef.select :category, Category.pluck(:name, :id), prompt:"Selecciona categoría" %>
+  </div>
 
-<div class="field">
-  <%= ef.label :date %>
-  <%= ef.text_field :date %>
-</div>
+  <div class="field">
+    <%= ef.text_field :date, :placeholder => "Date" %>
+  </div>
   
-<% end %>
+  <% end %>
 
+  <div class="field">
+    <%= form.submit %>  
+  </div>
 
-<div class="field">
-  <%= form.submit %>  
-</div>
+  <% end %>
 
-<% end %>
-
-
-
-<script>
-  $("#reservation_event_attributes_category").change(function(){
-    $.ajax({
-      url: "<%= categories_index_path %>", 
-      data: {id: this.value},
-      dataType: 'script'
+  <script>
+    $("#reservation_event_attributes_category").change(function(){
+      $.ajax({
+        url: "<%= categories_index_path %>", 
+        data: {id: this.value},
+        dataType: 'script'
       })
 
-  });
-</script>
+    });
+  </script>
