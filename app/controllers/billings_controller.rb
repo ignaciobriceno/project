@@ -17,7 +17,7 @@ class BillingsController < ApplicationController
  			payer: {
  				payment_method: "paypal" },
  			redirect_urls: {
- 					return_url: "https://rocky-falls-04812.herokuapp.com/billings/pre_pay",
+ 					return_url: "https://rocky-falls-04812.herokuapp.com/billings/execute",
  					cancel_url: "https://rocky-falls-04812.herokuapp.com/" },
  			transactions: [{
  					item_list: {
