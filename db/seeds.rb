@@ -14,6 +14,6 @@ Category.create(name: 'Productos')
 Category.create(name: 'Booking')
 
 10.times do |i|
-	User.create(name: "User #{i}", email: "user#{i}@mail.com", password: "12345678")
-	Photographer.create(name: "Photographer #{i}", email: "photographer#{i}@mail.com", password: "12345678")
+	User.create(name: "User #{i+1}", email: "user#{i+1}@mail.com", password: "12345678")
+	Photographer.create(name: "Photographer #{i+1}", email: "photographer#{i+1}@mail.com", password: "12345678")
 end
